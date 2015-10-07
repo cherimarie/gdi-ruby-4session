@@ -71,6 +71,83 @@
           <h3>Homework Discussion</h3>
           <p>How was last week's homework? Do you have any questions or concepts that you'd like to discuss?</p>
         </section>
+<!--extra from class 1-->
+         <section>
+          <h3>Methods</h3>
+          <ul>
+            <li>Methods define the behavior for an Object.</li>
+            <li>String Objects can <strong>reverse</strong>, for example.</li>
+            <li>Some methods are accessed using our friend 'dot' and some are standalone.</li>
+            <li>Let's call some methods</li>
+          </ul>
+          <pre>
+            <code contenteditable class="ruby">
+irb> puts "hello"
+hello
+=> nil
+irb> "2".to_i
+=> 2
+irb> 2.to_s
+=> "2"
+irb> "2" / 5
+NoMethodError: undefined method `/' for "2":String
+            </code>
+          </pre>
+        </section>
+        <section>
+          <h3>User Input</h3>
+          <ul>
+            <li>To obtain user input, use `gets`</li>
+            <li>To print out information, use `puts`</li>
+            <li>Let's create our first program together</li>
+          </ul>
+          </br>
+          </br>
+          <p  >Put the code below in a file and save it as name.rb</p>
+          <pre><code contenteditable class=" ruby">
+puts 'Hello there, and what\'s your name?'
+name = gets
+puts 'Your name is ' + name.chomp! + '? What a lovely name!'
+puts 'Pleased to meet you, ' + name + '. :)'
+          </code></pre>
+          <p  >Run your program from the command line:</p>
+          <pre><code  >
+        ruby name.rb
+          </code></pre>
+        </section>
+        <section>
+          <h3>Let's Develop It</h3>
+          <ul>
+            <li>Write your own program using 'puts' and 'gets' to ask a user for their age and then tell them how old they are in dog years.</li>
+            <li>reminder: 'gets' method returns a string. To do math on it, convert it to an integer with .to_i method.</li>
+            <pre><code class="ruby">
+            #1 dog year = 7 human years
+            user_age = gets.to_i
+            </code></pre>
+          </ul>
+        </section>
+        <section>
+          <h3>Lab 1</h3>
+          <ul>
+            <li>Update your code to return a message in all capital letters.</li>
+          </ul>
+          <pre><code class="ruby">
+# YOU ARE 5 YEARS OLD IN DOG YEARS
+          </code></pre>
+        </section>
+        <section>
+          <h3>Lab 2</h3>
+          <ul>
+            <li>Update your code to return a message in all capital letters, reversed with a count of the characters returned in parens.</li>
+          </ul>
+          <pre><code class="ruby">
+# YOU ARE 5 YEARS OLD IN DOG YEARS (32 characters)
+          </code></pre>
+        </section>
+        <section>
+          <h3>Questions?</h3>
+        </section>
+<!--end extra-->
 
         <!-- Block 1 30 minutes -->
         <section>
