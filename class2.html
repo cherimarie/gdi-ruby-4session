@@ -71,8 +71,28 @@
           <h3>Homework Discussion</h3>
           <p>How was last week's homework? Do you have any questions or concepts that you'd like to discuss?</p>
         </section>
-<!--extra from class 1-->
+
          <section>
+          <h3>Review</h3>
+          <ul>
+              <li>Arithmetic and variables</li>
+              <li>Data types</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>What we will cover today</h3>
+          <ul>
+              <li>Methods</li>
+              <li>Text editor, command line, and ruby shell</li>
+              <li>Boolean Expressions and Conditionals</li>
+              <li>Loops</li>
+<!--          <li>Collections</li>  -->
+          </ul>
+        </section>
+
+<!--extra from class 1 - 15 mins-->
+        <section>
           <h3>Methods</h3>
           <ul>
             <li>Methods define the behavior for an Object.</li>
@@ -94,6 +114,7 @@ NoMethodError: undefined method `/' for "2":String
             </code>
           </pre>
         </section>
+
         <section>
           <h3>User Input</h3>
           <ul>
@@ -115,59 +136,24 @@ puts 'Pleased to meet you, ' + name + '. :)'
         ruby name.rb
           </code></pre>
         </section>
+
         <section>
           <h3>Let's Develop It</h3>
           <ul>
             <li>Write your own program using 'puts' and 'gets' to ask a user for their age and then tell them how old they are in dog years.</li>
             <li>reminder: 'gets' method returns a string. To do math on it, convert it to an integer with .to_i method.</li>
             <pre><code class="ruby">
-            #1 dog year = 7 human years
-            user_age = gets.to_i
+#1 dog year = 7 human years
+user_age = gets.to_i
             </code></pre>
           </ul>
         </section>
-        <section>
-          <h3>Lab 1</h3>
-          <ul>
-            <li>Update your code to return a message in all capital letters.</li>
-          </ul>
-          <pre><code class="ruby">
-# YOU ARE 5 YEARS OLD IN DOG YEARS
-          </code></pre>
-        </section>
-        <section>
-          <h3>Lab 2</h3>
-          <ul>
-            <li>Update your code to return a message in all capital letters, reversed with a count of the characters returned in parens.</li>
-          </ul>
-          <pre><code class="ruby">
-# YOU ARE 5 YEARS OLD IN DOG YEARS (32 characters)
-          </code></pre>
-        </section>
+
         <section>
           <h3>Questions?</h3>
         </section>
-<!--end extra-->
 
-        <!-- Block 1 30 minutes -->
-        <section>
-          <h3>Review</h3>
-          <ul>
-              <li>Arithmetic and variables</li>
-              <li>Data types</li>
-              <li>Text editor, command line, and ruby shell</li>
-          </ul>
-        </section>
-
-        <section>
-          <h3>What we will cover today</h3>
-          <ul>
-              <li class ="fragment">Boolean Expressions and Conditionals</li>
-              <li class ="fragment">Loops</li>
-              <li class ="fragment">Collections</li>
-          </ul>
-        </section>
-
+        <!-- Block 2 20 minutes -->
         <section>
           <h3>Booleans</h3>
           <p>A <strong>boolean</strong> is a basic data type. It can have only two values: true or false.</p>
@@ -294,11 +280,11 @@ user_guess = gets.chomp.to_i
 secret_number = 312
 
 if user_guess < secret_number
-puts "Too low!"
+  puts "Too low!"
 elsif user_guess > secret_number
-puts "Too high!"
+  puts "Too high!"
 else
-puts "You guessed it. Wow maybe you're psychic...."
+  puts "You guessed it. Wow maybe you're psychic...."
 end
           </code></pre>
           <p>Can you tell what this code does?</p>
@@ -310,7 +296,7 @@ end
           <p>We achieve this using <strong>if</strong> statements and boolean expressions.</p>
           <pre><code  class="fragment ruby">
 if x == 5
-puts 'x is equal to 5'
+  puts 'x is equal to 5'
 end
           </code></pre>
           </section>
@@ -319,9 +305,9 @@ end
           <p>We often want a different block to execute if the statement is false. This can be accomplished using <strong>else</strong>.</p>
           <pre><code  class="fragment ruby">
 if x == 5
-puts 'x is equal to 5'
+  puts 'x is equal to 5'
 else
-puts 'x is not equal to 5'
+  puts 'x is not equal to 5'
 end
           </code></pre>
         </section>
@@ -332,17 +318,17 @@ end
           <pre><code  class="ruby">
 # And
 if x > 3 && y > 3
-puts 'Both values are greater than 3'
+  puts 'Both values are greater than 3'
 end
 
 # Or
 if x != 0 || y != 0
-puts 'The point x,y is not on the x or y axis'
+  puts 'The point x,y is not on the x or y axis'
 end
 
 # Not
 if not(x > y)
-puts 'x is less than y'
+  puts 'x is less than y'
 end
           </code></pre>
         </section>
@@ -355,11 +341,11 @@ end
           <p>For example:</p>
           <pre><code  class="fragment ruby">
 if x > 10
-puts "x is greater than 10"
+  puts "x is greater than 10"
 elsif x <= 10 && x > 0
-puts "x is a number between 1 and 10"
+  puts "x is a number between 1 and 10"
 else
-puts "Wow, don't be so negative, dude"
+  puts "Wow, don't be so negative, dude"
 end
           </code></pre>
         </section>
@@ -368,8 +354,8 @@ end
 <!-- Let's develop it: 10 minutes  -->
         <section>
           <h3>Let's Develop It</h3>
-          <p>Write a program in your text editor that uses conditionals and user input to allow the user to play an adventure game.</p>
-          <p>"gets.chomp" is the value of user input at the command line, with the trailing whitespace chomped off. To do math with it, convert it to an integer with the ".to_i" method</p>
+          <p>Write a program in your text editor that uses conditionals and user input to allow the user to play an adventure game. For example, you can "puts" story and options to the command line, and user can input their choices.</p>
+          <p>Remember, to do math with "gets", convert it to an integer with the ".to_i" method</p>
           <pre><code>
             input = gets.chomp.to_i
           </code></pre>
@@ -391,11 +377,11 @@ puts "2 - Climb a tree"
 input = gets.chomp
 
 if input == '1'
-puts "You hide in a cave. The dragon finds you and asks if you'd like to play Scrabble. Maybe it's not so vicious after all!"
+  puts "You hide in a cave. The dragon finds you and asks if you'd like to play Scrabble. Maybe it's not so vicious after all!"
 elsif input == '2'
-puts "You climb a tree. The dragon can't find you."
+  puts "You climb a tree. The dragon can't find you."
 else
-puts "That's not a valid option."
+  puts "That's not a valid option."
 end
           </code></pre>
           <pre><code class="ruby">
@@ -415,8 +401,8 @@ ruby dragon.rb
 x = 10
 
 while x > 0
-puts "Loop number #{x}"
-x = x - 1
+  puts "Loop number #{x}"
+  x = x - 1
 end
 
 puts 'Done'
@@ -428,8 +414,8 @@ puts 'Done'
 x = 10
 
 while x > 0
-puts "Loop number #{x}"
-x = x - 1
+  puts "Loop number #{x}"
+  x = x - 1
 end
           </code></pre>
           <p>The while statement takes a condition, and as long as it evaluates to true, the code block beneath it is repeated. This creates a <strong>loop</strong>.</p>
@@ -443,11 +429,11 @@ end
 num_bottles = 99
 
 while num_bottles > 0
-puts "#{num_bottles} bottles of beer on the wall,
-#{num_bottles} bottles of beer, take one down, pass it
-around, #{num_bottles - 1} bottles of beer on the wall!"
+  puts "#{num_bottles} bottles of beer on the wall,
+  #{num_bottles} bottles of beer, take one down, pass it
+  around, #{num_bottles - 1} bottles of beer on the wall!"
 
-num_bottles = num_bottles - 1
+  num_bottles = num_bottles - 1
 end
           </code></pre>
           <p>"#{num_bottles}" is an example of <strong>string interpolation</strong></p>
@@ -470,12 +456,12 @@ end
 loopy = true
 
 while loopy == true
-puts "Are we having fun yet?"
-puts "Answer 'true' or 'false'."
-user_input = gets.chomp
-if user_input == 'false'
-loopy = false
-end
+  puts "Are we having fun yet?"
+  puts "Answer 'true' or 'false'."
+  user_input = gets.chomp
+  if user_input == 'false'
+    loopy = false
+  end
 end
           </code></pre>
           <p>Learn more about loops in Ruby <a href="http://www.tutorialspoint.com/ruby/ruby_loops.htm" alt="Loops tutorial">here</a>.</p>
@@ -485,10 +471,10 @@ end
             <h3>Each loops</h3>
             <p>The most commonly used type of loop in Ruby is an each loop. It uses the <strong>.each</strong> method to iterate over a collection of elements, doing work to each one.</p>
 
-            <p>First, we need a collection. We use a <strong>range</strong> of numbers to loop over.</p>
+            <p>First, we need a collection. Let's use a <strong>range</strong> of numbers to loop over.</p>
             <pre><code  class="fragment ruby">
 (0..5).each do |i|
-puts "Value of i is #{i}"
+  puts "Value of i is #{i}"
 end
             </code></pre>
 
@@ -498,7 +484,7 @@ end
             <h3>Each loops</h3>
             <pre><code  class="ruby">
 (0..5).each do |i|
-puts "Value of i is #{i}"
+  puts "Value of i is #{i}"
 end
             </code></pre>
             <p>The loop has three parts:</p>
@@ -538,7 +524,6 @@ letter_range = ('a'..'e') # contains 'a', 'b', 'c', 'd', 'e'
           </code></pre>
           <p>Ranges are simply the range of values between the given first and last elements.</p>
           <p><strong>Inclusive</strong> ranges have two dots, and include the last element. <strong>Exclusive</strong> ranges have three dots, and do not include the last element.</p>
-        <!--TODO is this right?-->
           <p>Ranges need to be defined from lowest value to highest.</p>
         </section>
 
@@ -754,12 +739,12 @@ end
           <p>Hint: the modulo operator, %, will be helpful.</p>
         </section>
 
-        <section>
+       <!-- <section>
           <h3>Enumerable</h3>
           <p>Visit <a href="https://gist.github.com/cherimarie/11004115" alt="Gist with pets array">this page</a> and copy the contents of the Gist to a local file. Save it as pets.rb. We'll work with it together in IRB.</p>
         </section>
 
-        <section>
+         <section>
           <h3>Enumerable: Reduce</h3>
           <p>Returns the product of running the operator on all elements of the enumerable.</p>
           <pre><code class="ruby">
@@ -798,7 +783,7 @@ $pets.reject{|p| p[:talents].include? "napping" }
             <pre><code class="ruby">
 $pets.reject{|p| p[:nocturnal]== false}.count
             </code></pre>
-          </section>
+          </section> -->
 
 <!--
         <section>
