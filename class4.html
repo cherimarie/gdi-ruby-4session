@@ -47,88 +47,212 @@
       <div class="slides">
        <!-- Opening slide -->
         <section>
-          <img src = "images/gdi_logo_badge.png">
+          <img src = "img/gdi_logo_badge.png">
           <h3>Intro to Ruby</h3>
           <h4>Class 4</h4>
         </section>
 
         <section>
-          <h3>Welcome!</h3>
-          <div class = "left-align">
-          <p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
-          <p class ="green">Some "rules"</p>
+          <h3>Let's Develop It- Possible Solutions</h3>
+          <p><code>$pets.length</code></p>
+          <p><code>$pets.first[:name]</code></p>
+          <p><code>$pets.each{|p| puts p[:name]}</code></p>
+          <p><code>$pets.select{|p| p[:nocturnal] == true}.count</code></p>
+          <p><code>$pets.select{|p| p[:legs] == 4}.each{|p| puts p[:name]}</code></p>
+        </section>
+          <!-- Leftover from 2 ends -->
+          <!-- Leftover from 3 starts -->
+
+        <section>
+          <h3>Methods</h3>
+          <p>A <strong>method</strong> is a name for a chunk of code</p>
+          <p>Methods are often used to define reusable behavior.</p>
+          <p>Let's look at methods we've already used:</p>
+          <pre><code contenteditable class="ruby">
+1.even?
+=> false
+
+"fred".capitalize
+=> "Fred"
+
+puts "Hello there"
+Hello there
+=> nil
+          </code></pre>
+          <p>If you have some code you want to reuse or organize, methods are the way to do it.</p>
+        </section>
+
+        <section>
+          <h3>Write a Method</h3>
+          <p>Let's write a method together (in IRB)</p>
+          <p><strong>def</strong> means define</p>
+          <p><strong>subtract</strong> is the name of the method</p>
+          <p><strong>x, y</strong> are parameters</p>
+          <p><strong>x - y</strong> is the body of the method</p>
+          <p><strong>x - y</strong> is also the return value</p>
+          <pre><code contenteditable class="ruby">
+def subtract x, y
+  x - y
+end
+        </code></pre>
+        </section>
+
+        <section>
+          <h3>Method Return Value</h3>
+          <p>Every Ruby method returns something.</p>
+          <p>Usually, it's the last statement in the method.</p>
+          <p>It could be the value sent to <strong>return</strong> if that came first.</p>
+          <pre><code contenteditable class="ruby">
+def subtract(x,y)
+  x - y
+  'another thing'
+end
+
+puts subtract(5, 2)
+
+def subtract(x,y)
+  return x - y
+  'another thing'
+end
+
+puts subtract(5, 2)
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Let's Develop It!</h3>
+          <p>Let's write a method that takes in a number and tells us if it is even.</p>
+          <p>It could return string, like "even" or "odd", or a boolean, like <code>true</code> or <code>false</code>.</p>
+          <pre><code contenteditable class="ruby">
+def method_name(parameter)
+  # method implementation
+end
+          </code></pre>
+          <p>Hint: if number % 2 == 0, then it is even</p>
+        </section>
+
+        <section>
+          <h3>Arguments vs. Parameters</h3>
+          <p>Technically speaking, arguments are passed and parameters are declared.</p>
+          <p>In this code, 5 is an argument and x is a parameter</p>
+          <p>In reality, you'll often hear the terms used interchangeably</p>
+          <pre><code contenteditable class="ruby">
+def subtract(x,y)
+  x - y
+end
+
+subtract(5, 2)
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Parentheses</h3>
+          <p>The parentheses around arguments and paramaters are optional in Ruby.</p>
+          <p>I find that using them makes your code clearer, and recommend it.</p>
+          <pre><code contenteditable class="ruby">
+# They're often ommitted for the puts method
+
+puts "HELLO"
+
+puts("HELLO")
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Methods & Variables</h3>
+          <p><strong>Local variables</strong> are only available in the methods where they were defined.</p>
+          <pre><code contenteditable class="ruby">
+# Let's assign the length of the parameter to a local variable
+def length_finder(our_string)
+  length = our_string.length
+end
+
+puts length
+  => NameError! :(
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Objects</h3>
+          <p>An <strong>Object</strong> is the building block of a program.</p>
+          <p>Objects <strong>do things</strong> and have <strong>properties</strong>.</p>
+          <pre>
+Object: Number
+What can it do?
+- Add
+- Subtract
+- Divide
+- Multiply
+
+What are some properties of your Number?
+- Length
+- Base
+- Even
+          </pre>
+        </section>
+
+        <section>
+          <h3>Object Class</h3>
+          <p><strong>Objects</strong> can be grouped by Class.</p>
+          <p>Classes define a template for objects. They describe what a certain type of object can do and what
+            properties they have in common.
+          </p>
+          <p>There are many kinds of objects, including String, Number, Array, Hash, Time, ...</p>
+          <p>To create an object we use .new</p>
+          <pre><code contenteditable class="ruby">
+new_arr = []
+new_arr = Array.new
+          </code></pre>
+          <p>now new_arr refers to an object instance</p>
+        </section>
+
+     <!--    <section>
+          <h3>Object Methods</h3>
+          <p>Methods can be defined on objects.</p>
+          <pre><code contenteditable class="ruby">
+array = Object.new
+
+def array.delete
+  puts "deleted the array"
+end
+
+array.methods(false)
+          </code></pre>
+        </section> -->
+
+        <section>
+          <h3>Instance Variables</h3>
+          <p>Represent object state</p>
+          <p>Names start with an @</p>
+          <p>Only visible inside the object</p>
+          <pre><code contenteditable class="ruby">
+cookie = Object.new
+
+def cookie.add_chips(num_chips)
+  @chips = num_chips
+end
+
+def cookie.yummy?
+  @chips > 100
+end
+
+cookie.add_chips(500)
+cookie.yummy?   #=> true
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Object Oriented Programming</h3>
           <ul>
-            <li>We are here for you!</li>
-            <li>Every question is important</li>
-            <li>Help each other</li>
-            <li>Have fun</li>
+            <li>Object Oriented Programming is one of many <strong>programming approaches</strong>: procedural, event-driven, functional,
+              declarative...
+            </li>
+            <li>These days, most programming is done in an OO language: Java, C#, C++.</li>
+            <li>All this means is that programs are <strong>organized around objects</strong> (data & methods).</li>
+            <li>You might choose OOP because Objects make things <strong>easier to understand</strong> and act as a natural way to modularize code.
+              When a large code base is composed of many small Objects, it is <strong>easier to maintain</strong> and change.
+            </li>
           </ul>
-          </div>
-        </section>
-
-        <!-- Homework Review - 10 min -->
-        <section>
-          <h3>Homework Discussion</h3>
-          <p>How was last week's homework? Do you have any questions or concepts that you'd like to discuss?</p>
-        </section>
-
-        <section>
-          <h3>HW: English Numbers</h3>
-          <p>You could expand the EnglishNumbers program by adding the following code to deal with thousands:</p>
-          <pre><code class="ruby">
-left  = number  # this line was original code, setting the 'left' variable
-
-write = left/1000          #  How many thousands left to write out?
-left  = left - write*1000  #  Subtract off those thousands.
-
-if write > 0
-thousands  = englishNumber write
-numString = numString + thousands + ' thousand'
-
-if left > 0
-numString = numString + ' '
-end
-end
-
-write = left/100 # this line begins the existing code that deals with hundreds
-          </code></pre>
-        </section>
-
-        <section>
-          <h3>HW: Wedding Numbers</h3>
-          <p>You could modify the code in the EnglishNumbers program to make it WeddingNumbers by replacing some of the added spaces with added 'and's and spaces: </p>
-          <pre><code class="ruby">
-# numString = numString + ' '   # old code
-
-numString = numString + ' and '
-          </code></pre>
-        </section>
-
-        <section>
-          <h3>HW: 99 Bottles of Beer</h3>
-          <p>You could modify the code for 99 Bottles of Beer shown in Class2 to include the functionality in the EnglishNumber class: </p>
-          <pre><code class="ruby">
-require_relative 'englishnumber.rb'
-num_bottles = 999
-
-while num_bottles > 0
-puts "#{englishNumber(num_bottles)} bottles of beer on the wall,
-#{englishNumber(num_bottles)} bottles of beer, take one down, pass it
-around, #{englishNumber(num_bottles - 1)} bottles of beer on the wall!"
-
-num_bottles = num_bottles - 1
-end
-          </code></pre>
-        </section>
-
-        <section>
-          <h3>Review</h3>
-          <ul>
-            <li>What is a method?</li>
-            <li>Creating & calling a method</li>
-            <li>What is an object?</li>
-          </ul>
-          <p>What would you like to see reviewed?</p>
         </section>
 
         <!-- Built in classes of Ruby: 20 minutes -->
@@ -143,7 +267,7 @@ end
             <li>Hash</li>
           </ul>
           <p>They are commonly used object types, and have methods associated with them already. How convenient!</p>
-          <pre><code contenteditable class="fragment ruby">
+          <pre><code contenteditable class="ruby">
 a = Array.new
 b = String.new
           </code></pre>
@@ -153,44 +277,29 @@ b = String.new
           <h3>Built in classes of Ruby</h3>
           <p>When we create new objects from these classes, we can do things with them immediately.</p>
           <p>To see all methods associated with an object or class, run ".methods" on it.</p>
-          <pre><code contenteditable class="fragment ruby">
+          <pre><code contenteditable class="ruby">
 b = "holy cow!"
 b.methods
           </code></pre>
           <p>You can view all the built in classes and their associated methods in the <a href="http://www.ruby-doc.org/core-2.0.0/" alt="Ruby docuemntation">Ruby documentation</a>.</p>
         </section>
 
-        <section>
-          <h3>Extending a Class</h3>
-          <p>You can write new methods for the built in classes of Ruby. They will then be available to all instances of that class in your program.</p>
-          <pre><code contenteditable class="fragment ruby">
-class String
-def get_excited
-wow = self + "!!!"
-return wow
-end
-end
-          </code></pre>
-          <p>"self" refers to the object calling the method.</p>
-          <p>You can redefine existing methods for classes this way, too, but it's not recommended.</p>
-        </section>
-
 <!-- Creating a class: 20 minutes -->
         <section>
           <h3>Creating a Class</h3>
           <p>It's very easy to create your own classes in Ruby.</p>
-          <pre><code contenteditable class="fragment ruby">
+          <pre><code contenteditable class="ruby">
 # die.rb
 class Die
 
-def roll
-@numberShowing = 1 + rand(6)
-#rand(6) returns a random-ish number between 0-5
-end
+  def roll
+    @numberShowing = 1 + rand(6)
+    #rand(6) returns a random-ish number between 0-5
+  end
 
-def showing
-return @numberShowing
-end
+  def showing
+    return @numberShowing
+  end
 
 end
           </code></pre>
@@ -213,21 +322,21 @@ puts die.showing
           <h3>Refactoring a Class</h3>
           <p>What is the result of calling the .showing method on a newly-created, un-rolled Die object?</p>
           <p>We can avoid this by calling the roll method as part of the creation of a new instance of Die.</p>
-          <pre><code class="fragment ruby">
+          <pre><code class="ruby">
 # die.rb
 class Die
 
-def initialize
-roll
-end
+  def initialize
+    roll
+  end
 
-def roll
-@numberShowing = 1 + rand(6)
-end
+  def roll
+    @numberShowing = 1 + rand(6)
+  end
 
-def showing
-@numberShowing
-end
+  def showing
+    @numberShowing
+  end
 
 end
           </code></pre>
@@ -237,7 +346,7 @@ end
         <section>
           <h3>Let's Develop It</h3>
           <ul>
-            <li>In your text editor, create your own class with an initialize method, and at least one other method.</li>
+            <li>In your text editor, create a Character class with an initialize method that sets inital values, and at least one other method.</li>
             <li>Open IRB and load the class. Create one or more objects from the class and run some methods on them.</li>
             <li>You could use the next slides as an example.</li>
           </ul>
@@ -248,27 +357,24 @@ end
           <pre><code contenteditable class="ruby">
 # in character.rb
 class Character
+  def initialize(name)
+    @name = name
+    @health = 10
+  end
 
-def initialize(name)
-@name = name
-@health = 10
-end
+  def heal
+    @health += 6
+  end
 
-def heal
-@health += 6
-end
-
-def adventure
-if @health > 0
-puts "#{@name} goes on a great adventure and meets a dragon!"
-puts "The dragon hugged #{@name} kind of hard..."
-@health -= 5
-else
-puts "#{@name} is dead :("
-exit
-end
-end
-
+  def adventure
+    if @health > 0
+      puts "The dragon hugged #{@name} kind of hard..."
+      @health = @health - 5
+    else
+      puts "#{@name} is dead :("
+      exit
+    end
+  end
 end
           </code></pre>
         </section>
@@ -297,12 +403,12 @@ me.adventure
           <section>
           <h3>Inheritance</h3>
           <p>Denote that Elf inherits from Character by using the &lt symbol</p>
-          <pre><code class="fragment ruby">
+          <pre><code class="ruby">
 # in character.rb, after Character class code
 class Elf < Character
-def twinkle
-puts "I'm super magical!"
-end
+  def twinkle
+    puts "I'm super magical!"
+  end
 end
 
 #in irb
@@ -318,16 +424,16 @@ me.twinkle
           <h3>Inheritance</h3>
           <p><strong>Subclasses</strong> may differ from from their <strong>super classes</strong> in some ways. Methods can be overwritten when this is the case.</p>
 
-          <pre><code contenteditable class="fragment ruby">
+          <pre><code contenteditable class="ruby">
 # in character.rb, after Character class code
 class Elf < Character
-def twinkle
-puts "I'm super magical!"
-end
+  def twinkle
+    puts "I'm super magical!"
+  end
 
-def heal
-@health += 8 # it's easier to heal when you're magic
-end
+  def heal
+    @health += 8 # it's easier to heal when you're magic
+  end
 end
 
 #in irb
@@ -353,11 +459,11 @@ me.heal
           <pre><code contenteditable class="ruby">
 # in character.rb
 class Character
-# contents of class here
+  # contents of class here
 end
 
 class Elf < Character
-# contents of class here
+  # contents of class here
 end
             </code></pre>
           </section>
@@ -393,9 +499,8 @@ ruby adventure.rb
           <h3>Let's Develop It</h3>
           <p>Putting it all together: A role-playing game!</p>
           <ul>
-            <li>If you didn't write a Character class, copy and paste the code to get one started.</li>
-            <li>Create a few subclasses of Character.</li>
-            <li>Write a command-line program that calls your character and die classes to allow the user to have an adventure!</li>
+            <li>Build more methods for the Character class, and some subclasses of Character (Orc? WarriorPrincess?).</li>
+            <li>Write a command-line program that calls your Character and Die classes to allow the user to have an adventure!</li>
             <li>Maybe user can choose their character type?</li>
             <li>Maybe the user's progress will be dependent on outcome of dice-rolling?</li>
           </ul>
